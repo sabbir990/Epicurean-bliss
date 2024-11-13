@@ -12,7 +12,7 @@ export default function EstateSection() {
     const { data: allEstates, isLoading } = useQuery({
         queryKey: ["allEstates"],
         queryFn: async () => {
-            const { data } = await axios.get('http://localhost:3000/api/all_estates');
+            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_EPICUREAN_BLISS_BASE_URL}/api/all_estates`);
             return data;
         }
     })

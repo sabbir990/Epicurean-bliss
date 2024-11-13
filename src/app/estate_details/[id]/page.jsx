@@ -13,7 +13,7 @@ export default function Estate_details() {
   const { data: estate_details, isLoading } = useQuery({
     queryKey: ['estate_details', id],
     queryFn: async () => {
-      const { data } = await axios.get(`http://localhost:3000/api/estate_details/${id}`);
+      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_EPICUREAN_BLISS_BASE_URL}/api/estate_details/${id}`);
       return data;
     }
   })

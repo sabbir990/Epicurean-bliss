@@ -20,7 +20,7 @@ export default function Register() {
 
     const {mutateAsync : saveUser, isPending} = useMutation({
         mutationFn : async(user) => {
-            const {data} = await axios.post(`http://localhost:3000/api/post_users`, user)
+            const {data} = await axios.post(`${process.env.NEXT_PUBLIC_EPICUREAN_BLISS_BASE_URL}/api/post_users`, user)
             return data;
         },
 

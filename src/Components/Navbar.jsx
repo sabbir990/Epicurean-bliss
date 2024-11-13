@@ -13,7 +13,7 @@ export default function Navbar() {
     const { data: userInformation, isLoading } = useQuery({
         queryKey: ['userInformation', session?.data?.user?.email],
         queryFn: async () => {
-            const { data } = await axios.get(`http://localhost:3000/api/get_me/${session?.data?.user?.email}`)
+            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_EPICUREAN_BLISS_BASE_URL}/api/get_me/${session?.data?.user?.email}`)
             return data;
         }
     })

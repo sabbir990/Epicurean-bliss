@@ -11,7 +11,7 @@ export default function AllEstates() {
     const { data: all_estates, isLoading } = useQuery({
         queryKey: ['all_estates'],
         queryFn: async () => {
-            const { data } = await axios.get('http://localhost:3000/api/all_estates');
+            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_EPICUREAN_BLISS_BASE_URL}/api/all_estates`);
             return data;
         }
     })

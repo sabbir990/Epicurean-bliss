@@ -17,14 +17,14 @@ export default function Update_profile() {
   const { data: user_information, isLoading } = useQuery({
     queryKey: ['user_information', session?.data?.user?.email],
     queryFn: async () => {
-      const { data } = await axios.get(`http://localhost:3000/api/get_me/${session?.data?.user?.email}`);
+      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_EPICUREAN_BLISS_BASE_URL}/api/get_me/${session?.data?.user?.email}`);
       return data;
     }
   })
 
   const { mutateAsync: updateProfile } = useMutation({
     mutationFn: async (newProfile) => {
-      const { data } = await axios.patch(`http://localhost:3000/api/update_profile`, newProfile);
+      const { data } = await axios.patch(`${process.env.NEXT_PUBLIC_EPICUREAN_BLISS_BASE_URL}/api/update_profile`, newProfile);
       return data;
     },
     onSuccess: () => {
